@@ -1,1 +1,1 @@
-# Dennis is een flikker
+# Functional programming
