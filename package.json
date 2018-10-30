@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node_modules/.bin/nodemon index"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/MitchGoudkuil/functional-programming#readme",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "dotenv": "^6.1.0",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.5"
   }
 }
