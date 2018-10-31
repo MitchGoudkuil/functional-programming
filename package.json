@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "dotenv": "^6.1.0",
+    "query-string": "^6.2.0",
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
