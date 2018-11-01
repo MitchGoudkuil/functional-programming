@@ -96,6 +96,7 @@ Changed the query to blood and added the facet type(book) to only get the books 
 
 Results: 640 books
 
+*Subquestion:* How many thriller books with the word blood in it are available?
 Next added the genre(thriller) to the facets
 
       obaApi.get('search', {
@@ -104,6 +105,22 @@ Next added the genre(thriller) to the facets
         'facet': ['type(book)','genre(thriller)'],
         'refine': true
       } ).then(response => {
+
+Results: 92 books
+
+
+*Subquestion:* How many dutch thriller books with the word blood in it are available?
+To only get the dutch books added language(dut) to the facets.
+
+      obaApi.get('search', {
+        'q': "bloed",
+        'librarian': true,
+        'facet': ['type(book)', 'genre(thriller)', 'language(dut)' ],
+        'refine': true
+      } ).then(response => {
+
+Results: 70 books
+
 
 
 ## Proces:
