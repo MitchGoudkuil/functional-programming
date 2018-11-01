@@ -38,13 +38,20 @@
 
 #### Thursday:
   Because the research questions that I wrote down were wrong and I started to get behind I started the day off with making a To-do list to be able to reach my goal at the end of the week.
-  After the to-do list I made a new list with research questions, so i finally could start doing the research.
+  After the to-do list I made a new list with research questions, so I could finally start doing the research.
 
-
-  **To-do list**
+  :rocket: **To-do list**
   - [X] Learn how to work with the API and aquabrowser.
-  - [ ] Connect dots between variables from Daniël1's readme and set-up 5 research questions.
+  - [X] Connect dots between variables from Daniël1's readme and set-up 5 research questions.
   - [ ] Deconstruct the questions and try to get the data from the API.
   - [ ] Import the json data into a new json file to deconstruct.
   - [ ] Make the json info smaller using the high-order functions.
-  - [ ] Make a
+
+  :question: **Research question**
+   1. In hoeveel disney boeken zijn de hoofdpersonen mensen?
+   2. Onder de trilogieen, welke stapel is het dikste als ze op elkaar gestapeld zijn.
+   3. Bij welke roman worden de meeste sexuele woorden gebruikt in de beschrijving.
+   4. Hoe vaak wordt het woord 'bloed' gebruikt in de beschrijving van thriller verhalen.
+   5.
+
+   The focus on the information
