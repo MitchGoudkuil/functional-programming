@@ -20,7 +20,7 @@ const obaApi = new api({
 obaApi.get('search', {
   'q': "bloed",
   'librarian': true,
-  'facet': ['type(book)', 'genre(thriller)' ],
+  'facet': ['type(book)', 'genre(humor)', 'language(dut)' ],
   'refine': true
 
 } ).then(response => {

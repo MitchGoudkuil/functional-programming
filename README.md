@@ -1,12 +1,118 @@
 # Functional programming
 
+## Research:
 
-## Proces
+**Steps:**
+- Install packages
+- Set up Api
+- How aquabrowser works
+- Find out about search-terms and keywords
+  * Listing of questions
+  * Dissection of questions into subquestions
+- Findings
 
-#### Maandag:
+##### Packages used and sources to install:
+   * [Nodemon](https://nodemon.io/)
+   // used to show console into bash
+   * [axios](https://github.com/axios/axios)
+   // used for requests to the API
+   * [chalk](https://www.npmjs.com/package/chalk)
+   // adding colors to errors etc
+   * [dotenv](https://www.npmjs.com/package/dotenv)
+   // Possibility to import an .env file with important information
+   * [express](https://www.npmjs.com/package/express)
+   * [jsonpath](https://www.npmjs.com/package/JSONPath)
+   * [query-string](https://www.npmjs.com/package/query-string)
+   * [xml-to-json-Promise](https://www.npmjs.com/package/xml-to-json-promise)
+   * [xml2js](https://www.npmjs.com/package/xml2js)
+
+##### Api Setup
+  add index.js, oba-api.json and .env file. Dont forget to add the public and secret keys to the .env.
+
+    PUBLIC=thekey
+    SECRET=thekey
+
+To start up node process in bash:
+
+      npm run start
+
+##### How aquabrowser works:
+  Document about using the Aquabrowser [link](https://zoeken.oba.nl/api/v1/#/details)
+
+##### Search terms ,keywords and parameters:
+Props to Daniel van de Velde for the list with all available search terms and keywords. [Source](https://github.com/DanielvandeVelde/functional-programming/blob/master/README.md)
+
+Filtered list on most important and interesting keywords gained from XML search:
+   * coverimages
+     * coverimage (meerdere aanwezig als meerdere covers zijn)
+   * titles (Hoofd, kort en subtitel)
+     * title (mogelijk meerdere)
+     * short-title (mogelijk meerdere)
+     * other-title
+   * Authors
+     * main-author
+     * author (mogelijk meerdere)
+   * formats (book/movie)
+     * format
+   * publication (Jaar, uitgeverij, maand+jaartal, stad van uitgeverij?)
+     * year
+     * publishers
+       * publisher
+   * languages (Origineel en wanneer van toepassing vertaling)
+     * language
+   * genres (alleen bij films?)
+     * genre (meerdere)
+   * summaries (samenvattingen)
+     * summary
+
+##### Listing of questions
+1. In how many of the disney books are the main characters humans?
+2. If you put the 3 biggest trilogies next to each other, how high is the pile of books?
+3. On which novels's summary are the most sexual words used?
+4. How often does the word blood appear in the summary of thrillers? (Dutch and english)
+5.
+
+**Most interesting search question:**
+How often does the word blood appear in the summary of thrillers? (Dutch and english)
+
+Parameters needed/used to answer the question:
+- Genre
+- Format (books)
+- Language (Dut and eng)
+- Summary
+
+##### Findings
+To be able to get the information to answer the question I made sub questions to make it easier. After this I started doing the research in the Oba API.
+
+*Subquestion:* How many books are available with the word blood in it?
+Changed the query to blood and added the facet type(book) to only get the books from the API
+
+      obaApi.get('search', {
+        'q': "bloed",
+        'librarian': true,
+        'facet': 'type(book)',
+        'refine': true
+      } ).then(response => {
+
+Results: 640 books
+
+Next added the genre(thriller) to the facets
+
+      obaApi.get('search', {
+        'q': "bloed",
+        'librarian': true,
+        'facet': ['type(book)','genre(thriller)'],
+        'refine': true
+      } ).then(response => {
+
+
+## Proces:
+
+_Week 1_
+#### Monday:
    Started of with the introduction to the new Oba project and got some homework that we need to do for wednesday.
 
-   Set-up Rijks Oba Api together with Daniël and got it working but started over again with Dennis so we would know how the code works. We did this because Daniël and me never worked with Node before.
+   Set-up Rijks Oba Api together with Daniël2 and got it working but started over again with Dennis so we would know how the code works. We did this because Daniël2 and me never worked with Node before.
 
    We got a really nice lecture about high-order functions and how to use them. The filter and reduce function that was used on my Vue project is a lot clearer for me now.
 
@@ -51,7 +157,7 @@
    1. In hoeveel disney boeken zijn de hoofdpersonen mensen?
    2. Onder de trilogieen, welke stapel is het dikste als ze op elkaar gestapeld zijn.
    3. Bij welke roman worden de meeste sexuele woorden gebruikt in de beschrijving.
-   4. Hoe vaak wordt het woord 'bloed' gebruikt in de beschrijving van thriller verhalen.
+   4. Hoe vaak wordt het woord 'bloed' gebruikt in de beschrijving van thriller verhalen. (In dutch and english).
    5.
 
    The focus on the information
