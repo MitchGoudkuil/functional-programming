@@ -1,39 +1,31 @@
 require('dotenv').config()
 
-const axios = require('axios');
-const parseString = require('xml2js').parseString;
+const api = require('./oba-api.js')
+const chalk = require('chalk');
+const express = require('express')
+const app = express()
+const port = 3000
 
-const queryToString = require('query-string').stringify
+const obaApi = new api({
+  url: 'https://zoeken.oba.nl/api/v1/',
+  key: process.env.PUBLIC
+})
 
-const siteURL = 'https://zoeken.oba.nl/api/v1/';
+// Search for method, params and than optional where you wanna find something
+// returns first 20 items
+// obaApi.get(endpoint, params, filterKey)
+// possible endpoints: search (needs 'q' parameter) | details (needs a 'frabl' parameter) | availability (needs a 'frabl' parameter) | holdings/root | index/x (where x = facet type (like 'book' ))
+// possible parameters: q, librarian, refine, sort etc. check oba api documentation for all
+// possible filterKey: any higher order key in response object, like title returns only title objects instead of full data object
+obaApi.get('details', {
+  'frabl': '77F94D1FA10000A7',
+  'librarian': true
+}).then(response => {
 
+  // response ends up here
+  console.log(response.data)
 
-const query = '&librarian=true&q=harry%20potter&refine=true';
-
-
-var searchTerms = {
-  'frabl': '23E3EDD32F360A7'
-}
-
-const endPoint = 'search'
-
-const totalURL = siteURL + endPoint + '/?authorization=' + process.env.PUBLIC + '&' + queryToString(searchTerms)
-
-//const end = '&librarian=true&q=harry%20potter&refine=true';
-
-axios.get(totalURL)
- .then((response) => {
-   // handle success
-
-
-   parseString(response.data, function (err, result) {
-
-   console.log(result);
-   });
-
- })
- .catch(function (error) {
-   // handle error
-   console.log(error);
-   console.log(totalURL)
- });
+  // Make server with the response on the port
+  app.get('/', (req, res) => res.json(response))
+  app.listen(port, () => console.log(chalk.green(`Listening on port ${port}`)))
+})
