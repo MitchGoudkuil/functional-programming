@@ -36,10 +36,10 @@ To start up node process in bash:
 
       npm run start
 
-##### How aquabrowser works:
+##### 💧 How aquabrowser works:
   Document about using the Aquabrowser [link](https://zoeken.oba.nl/api/v1/#/details)
 
-##### Search terms ,keywords and parameters:
+##### :key: Search terms ,keywords and parameters:
 Props to Daniel van de Velde for the list with all available search terms and keywords. [Source](https://github.com/DanielvandeVelde/functional-programming/blob/master/README.md)
 
 Filtered list on most important and interesting keywords gained from XML search:
@@ -65,14 +65,14 @@ Filtered list on most important and interesting keywords gained from XML search:
    * summaries (samenvattingen)
      * summary
 
-##### Listing of questions
+##### :question: Listing of questions
 1. In how many of the disney books are the main characters humans?
 2. If you put the 3 biggest trilogies next to each other, how high is the pile of books?
 3. On which novels's summary are the most sexual words used?
 4. How often does the word blood appear in the summary of thrillers? (Dutch and english)
 5.
 
-**Most interesting search question:**
+**:rocket: Most interesting search question:**
 How often does the word blood appear in the summary of thrillers? (Dutch and english)
 
 Parameters needed/used to answer the question:
@@ -133,7 +133,7 @@ _Week 1_
 
    We got a really nice lecture about high-order functions and how to use them. The filter and reduce function that was used on my Vue project is a lot clearer for me now.
 
-   Went to the karaoke bar and sang some Andre Hazes.
+   Went to the karaoke bar and sang some Andre Hazes :beer:
 
 #### Tuesday:
 
@@ -171,10 +171,10 @@ _Week 1_
   - [ ] Make the json info smaller using the high-order functions.
 
   :question: **Research question**
-   1. In hoeveel disney boeken zijn de hoofdpersonen mensen?
-   2. Onder de trilogieen, welke stapel is het dikste als ze op elkaar gestapeld zijn.
-   3. Bij welke roman worden de meeste sexuele woorden gebruikt in de beschrijving.
-   4. Hoe vaak wordt het woord 'bloed' gebruikt in de beschrijving van thriller verhalen. (In dutch and english).
-   5.
+  1. In how many of the disney books are the main characters humans?
+  2. If you put the 3 biggest trilogies next to each other, how high is the pile of books?
+  3. On which novels's summary are the most sexual words used?
+  4. How often does the word blood appear in the summary of thrillers? (Dutch and english)
+  5. Which Genre has the most amount of books.(to easy)
 
    The focus on the information
