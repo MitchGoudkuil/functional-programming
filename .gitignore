@@ -1,3 +1,5 @@
 node_modules/
 .DS-Store
+.env
+.gitignore
 package-lock.json
