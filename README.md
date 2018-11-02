@@ -44,25 +44,25 @@ Props to Daniel van de Velde for the list with all available search terms and ke
 
 Filtered list on most important and interesting keywords gained from XML search:
    * coverimages
-     * coverimage (meerdere aanwezig als meerdere covers zijn)
-   * titles (Hoofd, kort en subtitel)
-     * title (mogelijk meerdere)
-     * short-title (mogelijk meerdere)
+     * coverimage
+   * titles
+     * title
+     * short-title
      * other-title
    * Authors
      * main-author
-     * author (mogelijk meerdere)
+     * author
    * formats (book/movie)
      * format
-   * publication (Jaar, uitgeverij, maand+jaartal, stad van uitgeverij?)
+   * publication
      * year
      * publishers
        * publisher
-   * languages (Origineel en wanneer van toepassing vertaling)
+   * languages
      * language
-   * genres (alleen bij films?)
-     * genre (meerdere)
-   * summaries (samenvattingen)
+   * genres
+     * genre (thriller)
+   * summaries
      * summary
 
 ##### :question: Listing of questions
@@ -70,7 +70,7 @@ Filtered list on most important and interesting keywords gained from XML search:
 2. If you put the 3 biggest trilogies next to each other, how high is the pile of books?
 3. On which novels's summary are the most sexual words used?
 4. How often does the word blood appear in the summary of thrillers? (Dutch and english)
-5.
+5. Which Genre has the most amount of books.(too easy)
 
 **:rocket: Most interesting search question:**
 How often does the word blood appear in the summary of thrillers? (Dutch and english)
@@ -175,6 +175,6 @@ _Week 1_
   2. If you put the 3 biggest trilogies next to each other, how high is the pile of books?
   3. On which novels's summary are the most sexual words used?
   4. How often does the word blood appear in the summary of thrillers? (Dutch and english)
-  5. Which Genre has the most amount of books.(to easy)
+  5. Which Genre has the most amount of books.(too easy)
 
    The focus on the information

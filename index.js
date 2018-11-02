@@ -26,8 +26,8 @@ obaApi.get('search', {
 } ).then(response => {
 
   // response ends up here
-  console.log(response.data.aquabrowser)
-
+let results = response.data.aquabrowser.Results
+console.log(results)
 
 
   // Make server with the response on the port
