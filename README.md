@@ -69,7 +69,7 @@ Filtered list on most important and interesting keywords gained from XML search:
 1. In how many of the disney books are the main characters humans?
 2. If you put the 3 biggest trilogies next to each other, how high is the pile of books?
 3. On which novels's summary are the most sexual words used?
-4. How often does the word blood appear in the summary of thrillers? (Dutch and english)
+4. Which books with the genre thriller has the most amount of the word blood in the summary? (Dutch and english)
 5. Which Genre has the most amount of books.(too easy)
 
 **:rocket: Most interesting search question:**
