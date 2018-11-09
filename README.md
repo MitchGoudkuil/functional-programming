@@ -2,7 +2,11 @@
 
 ## Research:
 
-**Steps:**
+**Description**
+A bubble chart from all the dutch thriller books that have the word Blood in the title. The chart shows the amount of pages on the X axis, the bookTitles on the y Axis, the amount of characters in the summary(the radius of the circle) and if the words Murder and kidnapping excist in the summary(colors of the circle).
+
+
+**Table of contents:**
 - Install packages
 - Set up Api
 - How aquabrowser works
@@ -11,7 +15,32 @@
   * Dissection of questions into subquestions
 - Findings
 
-##### Packages used and sources to install:
+
+##### Installing the project:
+
+      **Clone the repository**
+      git clone https://github.com/MitchGoudkuil/functional-programming
+
+      **Enter new directory**
+      cd functional-programming
+
+      **Create a .env file**
+      touch .env
+
+      **Add public and secret key to the .env file**
+      PUBLIC=987654321
+      SECRET=123456789
+
+      **Install Packages needed**
+      Check the packages listed below
+      npm install
+
+      # Start application
+      npm run start
+
+      check if running on: http://localhost:30000
+
+**Packages used and sources to install:**
    * [Nodemon](https://nodemon.io/)
    // used to show console into bash
    * [axios](https://github.com/axios/axios)
@@ -26,23 +55,17 @@
    * [xml-to-json-Promise](https://www.npmjs.com/package/xml-to-json-promise)
    * [xml2js](https://www.npmjs.com/package/xml2js)
 
-##### Api Setup
-  add index.js, oba-api.json and .env file. Dont forget to add the public and secret keys to the .env.
 
-    PUBLIC=thekey
-    SECRET=thekey
+##### 💧 Learning aquabrowser:
+  Document about using the Aquabrowser, about al the parameters, facets, etc send to us by Mark Vos from the Oba. [link](https://zoeken.oba.nl/api/v1/#/details)
+  The documentation is a bit outdated and the explanation is not really that great.
 
-To start up node process in bash:
+**:key: Search terms ,keywords and parameters:**
 
-      npm run start
+To find out about all the subjects and facets you can search for, Daniel van de Velde made an amazing readme about it.
+Props to Daniel van de Velde for this list and sharing it with us. [Source](https://github.com/DanielvandeVelde/functional-programming/blob/master/README.md)
 
-##### 💧 How aquabrowser works:
-  Document about using the Aquabrowser [link](https://zoeken.oba.nl/api/v1/#/details)
-
-##### :key: Search terms ,keywords and parameters:
-Props to Daniel van de Velde for the list with all available search terms and keywords. [Source](https://github.com/DanielvandeVelde/functional-programming/blob/master/README.md)
-
-Filtered list on most important and interesting keywords gained from XML search:
+I made a small list with the available data that was the most interesting, and probably needed for the visualisation:
    * coverimages
      * coverimage
    * titles
@@ -65,116 +88,113 @@ Filtered list on most important and interesting keywords gained from XML search:
    * summaries
      * summary
 
-##### :question: Listing of questions
+#####:question: Listening subquestions and setting up the hypothesis
+
+
 1. In how many of the disney books are the main characters humans?
 2. If you put the 3 biggest trilogies next to each other, how high is the pile of books?
 3. On which novels's summary are the most sexual words used?
 4. Which books with the genre thriller has the most amount of the word blood in the summary? (Dutch and english)
 5. Which Genre has the most amount of books.(too easy)
 
-**:rocket: Most interesting search question:**
-How often does the word blood appear in the summary of thrillers? (Dutch and english)
+**Hypothesis**
 
-Parameters needed/used to answer the question:
+How often does the word blood appear in the summary of dutch thrillers?
+
+This hypothesis gave me data which was so small that I was not happy with it. So in the end I changed it to a different question. Which was:
+
+In dutch thrillers with the word blood in the title, how much times does the word murder or kidnapping show up in the summmary? And is it true that books with more pages have a large summary?
+
+Parameters needed/used to answer the questions:
 - Genre
 - Format (books)
-- Language (Dut and eng)
-- Summary
-
-##### Findings
-To be able to get the information to answer the question I made sub questions to make it easier. After this I started doing the research in the Oba API.
-
-*Subquestion:* How many books are available with the word blood in it?
-Changed the query to blood and added the facet type(book) to only get the books from the API
-
-      obaApi.get('search', {
-        'q': "bloed",
-        'librarian': true,
-        'facet': 'type(book)',
-        'refine': true
-      } ).then(response => {
-
-Results: 640 books
-
-*Subquestion:* How many thriller books with the word blood in it are available?
-Next added the genre(thriller) to the facets
-
-      obaApi.get('search', {
-        'q': "bloed",
-        'librarian': true,
-        'facet': ['type(book)','genre(thriller)'],
-        'refine': true
-      } ).then(response => {
-
-Results: 92 books
+- Language (Dut)
+- Book Summary
+- Book page count
 
 
-*Subquestion:* How many dutch thriller books with the word blood in it are available?
-To only get the dutch books added language(dut) to the facets.
+##### Getting the data
+To be able to get the data I changed the Api get request to as shown below:
 
-      obaApi.get('search', {
-        'q': "bloed",
-        'librarian': true,
-        'facet': ['type(book)', 'genre(thriller)', 'language(dut)' ],
-        'refine': true
-      } ).then(response => {
+``` js
+      client.getAll('search',
+      {
+       q: 'title:bloed',
+       librarian: true,
+       refine: true,
+       facet:'type(book)&facet=language(dut)&facet=genre(thriller)'
+      },
+      {
+        page: 1,
+        pagesize: 20,
+        maxpages: 4
+      })
+```
 
-Results: 70 books
-
-
-
-## Proces:
-
-_Week 1_
-#### Monday:
-   Started of with the introduction to the new Oba project and got some homework that we need to do for wednesday.
-
-   Set-up Rijks Oba Api together with Daniël2 and got it working but started over again with Dennis so we would know how the code works. We did this because Daniël2 and me never worked with Node before.
-
-   We got a really nice lecture about high-order functions and how to use them. The filter and reduce function that was used on my Vue project is a lot clearer for me now.
-
-   Went to the karaoke bar and sang some Andre Hazes :beer:
-
-#### Tuesday:
-
-  There was no place for us at the Oba so we went to fest to work there. I set up the new Git repository for [functional programming](https://github.com/MitchGoudkuil/functional-programming) and connected it so I could start working on this README. Got the new api code from Dennis so I could find some of the search keywords to setup some research questions. It was quite hard to use, so at the end of the day I wrote down some made up questions that sounded nice to do research to.
-
-**5 research questions:**
-  - Which Genre gets rented out the most.
-  - Which Genre has the most amount of books.
-  - Whats the top ten most rented out books.
-  - Of which publisher are the most books lent.
-  - Are there more horror books rented out with Halloween than normal?
+The results gave me 46 dutch thrillers(books), each with the word blood in the title. Thanks to the Api that Folkert and Dennis made I was able to import more data. The data that the Api returned was a lot. So it is was necessary to make this data more compact and only with the data that I actually need.
 
 
-#### Wednesday:
-  We started the day of with listing our questions to the class and we talked about what was unclear for us and how a lecture could help us understand how stuff works.
+**Making data smaller**
+To make the data smaller I learned how to map over the data the Api provided me and how to make the data even smaller so I would only get the data that I needed.
+``` js
+let newarr = res.map(book => {
+  let summaryBook = book.summaries && book.summaries[0] &&    book.summaries[0].summary && book.summaries[0].summary[0] &&    book.summaries[0].summary[0]['_'] ? book.summaries[0].summary[0]._ :    null
+  let bookTitle = book.titles[0] && book.titles[0].title[0] &&    book.titles[0].title[0]['_'] ? book.titles[0].title[0]._ : null
+  bookTitle = bookTitle.substring(0, bookTitle.indexOf("/")).trim()
+  let bookMainAuthor = book.authors[0]['main-author']._
+  let pageCount = book.description[0]['physical-description'][0]._
+  pageCount = Number(pageCount.substring(0,    pageCount.indexOf("p")).trim())
 
-  I found out that most of my research questions were wrong because the information that I needed was not able to get at all, because of privacy rules. So I had to start over again.
-  Thankfully Daniël1 made a [readme](https://github.com/DanielvandeVelde/functional-programming/blob/master/README.md) with all the available keywords so now I was able to connect dots and setup some new research questions.
+  let basicInfo = [
+    summaryBook,
+    bookTitle,
+    bookMainAuthor,
+    pageCount
+  ]
 
-  Laurens told us that it was allowed and important to share code with each other because it is really difficult for some of us to start working on it, including me. We got the new code that Dennis and Folkert made and Dennis gave me a speedcourse in how to use it.
+  if (!basicInfo.includes(null)){
+    let murderWord = "moord"
+    let kidnapWord = "ontvoer"
+    let allInfo = {
+      bookTitle : basicInfo[1],
+      bookAuthor : basicInfo[2],
+      titleLength : bookTitle.length,
+      summaryBook : basicInfo[0],
+      summaryLength : summaryBook.length,
+      murderWordCheck : summaryBook.includes(murderWord),
+      kidnapWordCheck : summaryBook.includes(kidnapWord),
+      pageCount : basicInfo[3]
+      // searchWordAmount : summaryBook ?    summaryBook.split(searchword).length-1 : null,
+    }
+    infoArr.push(allInfo)
+  } else{
+    "niet gevonden"
+  }
+})
+```
 
-  After this we got 2 lectures from Titus and Laurens. Laurens told us how get information from an Api and how to make this information smaller using the high-order functions which Titus told us about. Titus gave us a lecture about how to write a promise and what it does.
+After getting all the data and putting them in variables it was time to push them into an array that I could then export to a Json file to use with d3. That array is then returned as the value of the response.
 
-  I feel a lot more informed and I'm looking forward to working with the new stuff that I Learned.  
+**generating json**
 
-#### Thursday:
-  Because the research questions that I wrote down were wrong and I started to get behind I started the day off with making a To-do list to be able to reach my goal at the end of the week.
-  After the to-do list I made a new list with research questions, so I could finally start doing the research.
+Because the get request is done with a promise I made a new then in which I work with the server(first to lines in the THEN) and the json export(last two lines in the THEN).
 
-  :rocket: **To-do list**
-  - [X] Learn how to work with the API and aquabrowser.
-  - [X] Connect dots between variables from Daniël1's readme and set-up 5 research questions.
-  - [ ] Deconstruct the questions and try to get the data from the API.
-  - [ ] Import the json data into a new json file to deconstruct.
-  - [ ] Make the json info smaller using the high-order functions.
+``` js
+.then(response => {
+    app.get('/', (req, res) => res.json(response))
+    app.listen(port, () => console.log(chalk.green(`Listening on port ${port}`)))
+    data = JSON.stringify(response, null, 2 );
+    fs.writeFileSync('src/bookdata.json', data);
+})
+```
+With fs its able to export the response into a new generated file called bookdata.json. We now have the data that we need to make the visualisation :).
 
-  :question: **Research question**
-  1. In how many of the disney books are the main characters humans?
-  2. If you put the 3 biggest trilogies next to each other, how high is the pile of books?
-  3. On which novels's summary are the most sexual words used?
-  4. How often does the word blood appear in the summary of thrillers? (Dutch and english)
-  5. Which Genre has the most amount of books.(too easy)
 
-   The focus on the information
+##### Sketching the visualisation
+I made two sketches in which I wanted to design the look of the visualisation. This way I knew where I wanted to put the data on the axis.
+
+*Sketch one:* At first I wanted to make a bar chart but I changed that rather quickly at the end.
+
+![alt text](sketch1.png")
+
+*Sketch two:* This is the way I wanted to make the graph. I chose for a bubble chart because in this way its nicer to show more datapoints.

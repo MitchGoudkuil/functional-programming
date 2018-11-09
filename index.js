@@ -39,18 +39,12 @@ client.getAll('search',
   let infoArr = []
 console.log("ikbenhier");
   let newarr = res.map(book => {
-    // if (!book.summaries[0].summary || !book.titles[0].title || !book.authors[0].author) {
-    //   console.log('summary: ', book.summaries[0].summary, 'title: ', book.titles[0].title, 'author' book.authors[0].author);
-    //   console.log('er is een object zonder summary, title of author array')
-    // }
-
     let summaryBook = book.summaries && book.summaries[0] && book.summaries[0].summary && book.summaries[0].summary[0] && book.summaries[0].summary[0]['_'] ? book.summaries[0].summary[0]._ : null
     let bookTitle = book.titles[0] && book.titles[0].title[0] && book.titles[0].title[0]['_'] ? book.titles[0].title[0]._ : null
     bookTitle = bookTitle.substring(0, bookTitle.indexOf("/")).trim()
     let bookMainAuthor = book.authors[0]['main-author']._
     let pageCount = book.description[0]['physical-description'][0]._
     pageCount = Number(pageCount.substring(0, pageCount.indexOf("p")).trim())
-
 
     let basicInfo = [
       summaryBook,
