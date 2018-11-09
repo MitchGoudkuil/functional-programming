@@ -9,13 +9,20 @@ Check the [visual](http://MitchGoudkuil.github.io) here.
 
 
 **Table of contents:**
-- Install packages
-- Set up Api
-- How aquabrowser works
-- Find out about search-terms and keywords
-  * Listing of questions
-  * Dissection of questions into subquestions
-- Findings
+
+* [Installing the project](#installingtheproject)
+* [Learning aquabrowser](#Learningaquabrowser)
+   * search terms and keywords
+* [Listening subquestions and setting up the hypothesis](#Listeningsubquestionsandsettingupthehypothesis)
+   * Hypothesis
+* [Getting the data](#Gettingthedata)
+   * Making data smaller
+   * Generating json
+* [Sketching the visualisation](#Sketchingthevisualisation)
+* [Installing the project](#installingtheproject)
+* [Setup of d3](#set-upofd3)
+* [Conclusion](#conclusion)
+* [Special thanks](#specialthanks)
 
 
 ##### Installing the project:
@@ -205,7 +212,37 @@ I made two sketches in which I wanted to design the look of the visualisation. T
 
 
 ##### Set-up of d3
---- still needed ---
+For the setup of d3, to start off make a new file with the name src. In this file the only thing we need is an index.html, bookdata.json and a d3.js file, and maybe a css file but you can also just make an style tag and but the styling in there.
+
+To load d3 into the project add
+
+```js
+<script src="https://d3js.org/d3.v5.js"></script>
+```
+
+to the bottom of your body. Under this tag add your d3.js the same way.
+
+To be able to work with a json file d3 had the ability to load this data through a promise which was something new I learned about
+
+```js
+d3.json('bookdata.json').then(data => {
+  // in here we're going to put the code
+})
+// Don't forget to add a catch at the end to make sure the errors get handled
+.catch(err => {
+  console.log(err);
+})
+
+```
+
+To be able to work with the provided data from the dataset I had to make some variables to make it easier for myself which works the same way as making the data smaller when retrieving the data.
+
+After appending the svg in d3 and adding all the groups and the data provided in the bookdata.json file the chart is finished. Its hard to get used to the documentation of d3 but in the end if you look at the generated svg its quite logical.
+
+You can find the end result [here](http://MitchGoudkuil.github.io)
+
+
+**what I still wanted to do**
 
 
 ##### Conclusion
