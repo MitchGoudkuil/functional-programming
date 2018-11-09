@@ -8,6 +8,17 @@ A bubble chart from all the dutch thriller books that have the word Blood in the
 Check the [visual](http://MitchGoudkuil.github.io) here.
 
 
+
+
+**Links**
+
+* [Link of the bubblechart where I got my inspiration from while sketching](https://datavizcatalogue.com/methods/bubble_chart.html)
+
+* [Code example that I looked at to make the visualisation](https://beta.observablehq.com/@mbostock/d3-bubble-chart)
+
+* [tutorial from Udemy that I watched](https://www.udemy.com/masteringd3js/learn/v4/content)
+
+
 **Table of contents:**
 
 * [Installing the project](#installingtheproject)
