@@ -5,6 +5,8 @@
 **Description**
 A bubble chart from all the dutch thriller books that have the word Blood in the title. The chart shows the amount of pages on the X axis, the bookTitles on the y Axis, the amount of characters in the summary(the radius of the circle) and if the words Murder and kidnapping excist in the summary(colors of the circle).
 
+Check the [visual](http://MitchGoudkuil.github.io) here.
+
 
 **Table of contents:**
 - Install packages
@@ -195,6 +197,24 @@ I made two sketches in which I wanted to design the look of the visualisation. T
 
 *Sketch one:* At first I wanted to make a bar chart but I changed that rather quickly at the end.
 
-![alt text](sketch1.png")
+![alt text](https://raw.githubusercontent.com/MitchGoudkuil/functional-programming/master/sketch1.png)
 
 *Sketch two:* This is the way I wanted to make the graph. I chose for a bubble chart because in this way its nicer to show more datapoints.
+
+![alt text](https://raw.githubusercontent.com/MitchGoudkuil/functional-programming/master/sketch2.png)
+
+
+##### Set-up of d3
+--- still needed ---
+
+
+##### Conclusion
+Just as the other course, I learned a lot this time. It was extremely hard to get started because Node and working with an Api was completely new for me. I got a lot of help from Dennis and Folkert who made a completely new setup of theOba Api which I had to get used to working with it. After realising how nice it was to work with the Api it was time to make the data smaller. Dennis gave me instructions but actually let me type and guess to what was needed to make de data more compact. At the end it felt like I finally knew what was happening and I actually helped some other students as well with getting the data. I learned a lot of things that were u clear to me before like: returning values, promises, the use of high order functions and a lot more.
+
+Working with d3 was a b*tch to say at least. In the beginning its absolutely unclear how the setup of d3 works but whats nice is that there were a lot of tuttorials which showed a lot of the stuff that I needed. I changed my chart a lot from circles to barcharts and at the end back to a bubble chart, but with the values this time. I learned how to work with it but I am sure that there is a lot more to learn. Especially the calculations of the scaling.
+
+What went wrong was that it was hard for me to get a good connection between the data. I had a nice idea but it turned out to be not as great as it was in my head :(. On thursday I was still trying to figure out what I wanted to make and I had a light mental breakdown after I decided that I had to start over. Thankfully that worked out really great thanks to help and a lot of tuttorials.
+
+
+##### Special thanks to
+It was not possible for me to make this visualisation if I didn't get help from Dennis, Folkert and Daniel. Their skills are amazing on its self and especially if you combine it together.  
